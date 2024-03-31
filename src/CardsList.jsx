@@ -4,7 +4,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Context } from './LevelContext';
 // import ItemCard from './ItemCard';
 import '../style/CardsList.css';
 import '../style/ItemCard.css';
@@ -56,15 +55,9 @@ const CardsList = function (props) {
               <span className='description'>{item.description}</span>
             </div>
             <div className='card-buttons'>
-              <Context.Provider value={item}>
-                <Link
-                  to={'' + item.id}
-                  state={{ items }}
-                  className='edit-button'
-                >
-                  Edit
-                </Link>
-              </Context.Provider>
+              <Link to={'' + item.id} state={{ items }} className='edit-button'>
+                Edit
+              </Link>
               <button
                 className='delete-button'
                 onClick={(e) => {
