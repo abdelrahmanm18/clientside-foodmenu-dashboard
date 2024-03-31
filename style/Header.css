@@ -1,0 +1,36 @@
+header {
+  background-color: #44b189;
+  position: static;
+  margin-bottom: 1rem;
+}
+.container {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  gap: 20px;
+  color: white;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+.link:hover {
+  color: grey;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  padding: 10px 0;
+}
+
+.logo-container:hover {
+  transform: scale(1.1);
+}
