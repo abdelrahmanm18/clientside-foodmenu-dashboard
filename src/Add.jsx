@@ -51,6 +51,10 @@ export default function Add() {
     if (image.current.files && image.current.files[0]) {
       formData.append('image', image.current.files[0]);
     }
+
+    if (item.subcategoriesID === null) {
+      formData.delete('subcategoriesID');
+    }
     axios
       .post('https://food-menu-dashboard.vercel.app/items', formData, {
         headers: {

@@ -28,6 +28,9 @@ const CardsList = function (props) {
     reload: 0,
   });
 
+  const [category, setCategory] = useState();
+  const [subCategory, setSubCategory] = useState();
+
   useEffect(() => {
     setItems({ ...items, loading: true });
     axios
@@ -39,6 +42,49 @@ const CardsList = function (props) {
         setItems({ ...items, loading: false, err: 'something went wrong' });
       });
   }, [items.reload]);
+
+  useEffect(() => {
+    setCategory();
+    axios
+      .get('https://food-menu-dashboard.vercel.app/categories')
+      .then((res) => {
+        setCategory(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get('https://food-menu-dashboard.vercel.app/subCategories')
+      .then((res) => {
+        setSubCategory(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const getCategory = function (id) {
+    let result = '';
+    category.forEach((element) => {
+      if (element.id == id) {
+        result = element.name;
+      }
+    });
+    return result;
+  };
+
+  const getSubCategory = function (id) {
+    let result = '';
+    subCategory.forEach((element) => {
+      if (element.id == id) {
+        result = element.name;
+      }
+    });
+    return result;
+  };
 
   return (
     <>
@@ -53,6 +99,12 @@ const CardsList = function (props) {
               <span className='name'>{item.title}</span>
               <span className='price'>{item.price} LE</span>
               <span className='description'>{item.description}</span>
+              <span className='category'>
+                <b>Category</b>: {getCategory(item.categoriesID)}
+              </span>
+              <span className='sub-category'>
+                <b>SubCategory</b>: {getSubCategory(item.subcategoriesID)}
+              </span>
             </div>
             <div className='card-buttons'>
               <Link to={'' + item.id} state={{ items }} className='edit-button'>
