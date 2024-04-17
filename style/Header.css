@@ -7,7 +7,7 @@ header {
   display: flex;
   width: 90%;
   margin: 0 auto;
-  gap: 20px;
+  gap: 3rem;
   color: white;
 }
 
@@ -30,7 +30,24 @@ nav ul {
   width: 100px;
   padding: 10px 0;
 }
+.logo-container {
+  margin-right: auto;
+}
 
 .logo-container:hover {
   transform: scale(1.1);
+}
+
+.header-link {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-link:hover {
+  color: green;
 }

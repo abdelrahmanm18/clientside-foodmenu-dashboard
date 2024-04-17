@@ -89,6 +89,7 @@ const CardsList = function (props) {
   return (
     <>
       {/* loader */}
+      {items.loading && <div className='spinner'></div>}
       <div className='cards-list'>
         {items.results.map((item) => (
           <div className='card-container' key={item.id}>

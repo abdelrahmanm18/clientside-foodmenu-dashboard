@@ -20,6 +20,12 @@ const Header = () => {
               onClick={clickHandler}
             ></img>
           </Link>
+          <Link to={'/offers'} className='header-link'>
+            Offers
+          </Link>
+          <Link to={'/events'} className='header-link'>
+            Events
+          </Link>
         </div>
       </header>
     </>

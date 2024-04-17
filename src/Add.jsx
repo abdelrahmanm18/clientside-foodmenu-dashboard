@@ -52,6 +52,7 @@ export default function Add() {
       formData.append('image', image.current.files[0]);
     }
 
+    //if there is no subID, then delete it from fromData and it will be assigned to null by default in database
     if (item.subcategoriesID === null) {
       formData.delete('subcategoriesID');
     }
