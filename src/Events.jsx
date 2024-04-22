@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 const Events = function () {
   const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -23,7 +25,7 @@ const Events = function () {
       )
       // eslint-disable-next-line no-unused-vars
       .then((res) => {
-        // window.location.reload();
+        navigate('/');
       });
   };
 

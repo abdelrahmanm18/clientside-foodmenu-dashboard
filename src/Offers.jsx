@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import '../style/ItemCard.css';
 // eslint-disable-next-line no-unused-vars
 import Edit from './EditForm';
 import { Link } from 'react-router-dom';
 
 const Offers = function () {
+  const navigate = useNavigate();
   const [offers, setOffers] = useState({
     loading: true,
     results: [],
@@ -37,6 +40,7 @@ const Offers = function () {
       // eslint-disable-next-line no-unused-vars
       .then((res) => {
         // window.location.reload();
+        navigate('/');
       });
   };
   return (
