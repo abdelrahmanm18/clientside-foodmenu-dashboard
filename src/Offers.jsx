@@ -30,8 +30,6 @@ const Offers = function () {
 
   const onClickHandler = function (id, available) {
     available ? (available = 1) : (available = 0);
-    available ? (color = 'red') : (color = 'green');
-    console.log(color);
     axios
       .put(
         `https://food-menu-dashboard.vercel.app/offers/${id}?available=${available}`
