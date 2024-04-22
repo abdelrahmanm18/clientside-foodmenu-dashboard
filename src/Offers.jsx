@@ -30,18 +30,20 @@ const Offers = function () {
 
   const onClickHandler = function (id, available) {
     available ? (available = 1) : (available = 0);
+    available ? (color = 'red') : (color = 'green');
+    console.log(color);
     axios
       .put(
         `https://food-menu-dashboard.vercel.app/offers/${id}?available=${available}`
       )
       // eslint-disable-next-line no-unused-vars
       .then((res) => {
-        window.location.reload();
+        // window.location.reload();
       });
   };
   return (
     <>
-      {Offers.loading && <div className='spinner'></div>}
+      {offers.loading && <div className='spinner'></div>}
       <div className='cards-list'>
         {offers.results.map((offer) => (
           <div className='card-container' key={offer.id}>
@@ -70,9 +72,9 @@ const Offers = function () {
                   onClickHandler(offer.id, !offer.available);
                 }}
               >
-                Show
+                Change
               </button>
-              <button
+              {/* <button
                 className='hide-button'
                 // eslint-disable-next-line no-unused-vars
                 onClick={(e) => {
@@ -80,7 +82,7 @@ const Offers = function () {
                 }}
               >
                 Hide
-              </button>
+              </button> */}
             </div>
           </div>
         ))}

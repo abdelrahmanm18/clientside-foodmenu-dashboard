@@ -23,7 +23,7 @@ const Events = function () {
       )
       // eslint-disable-next-line no-unused-vars
       .then((res) => {
-        window.location.reload();
+        // window.location.reload();
       });
   };
 
@@ -58,9 +58,9 @@ const Events = function () {
                   onClickHandler(event.id, !event.available);
                 }}
               >
-                Show
+                Change
               </button>
-              <button
+              {/* <button
                 className='hide-button'
                 // eslint-disable-next-line no-unused-vars
                 onClick={(e) => {
@@ -68,7 +68,7 @@ const Events = function () {
                 }}
               >
                 Hide
-              </button>
+              </button> */}
             </div>
           </div>
         ))}

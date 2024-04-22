@@ -27,7 +27,6 @@ const CardsList = function (props) {
     err: null,
     reload: 0,
   });
-
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
 
@@ -68,21 +67,25 @@ const CardsList = function (props) {
 
   const getCategory = function (id) {
     let result = '';
-    category.forEach((element) => {
-      if (element.id == id) {
-        result = element.name;
-      }
-    });
+    if (Array.isArray(category)) {
+      category?.forEach((element) => {
+        if (element.id == id) {
+          result = element.name;
+        }
+      });
+    }
     return result;
   };
 
   const getSubCategory = function (id) {
     let result = '';
-    subCategory.forEach((element) => {
-      if (element.id == id) {
-        result = element.name;
-      }
-    });
+    if (Array.isArray(subCategory)) {
+      subCategory?.forEach((element) => {
+        if (element.id == id) {
+          result = element.name;
+        }
+      });
+    }
     return result;
   };
 

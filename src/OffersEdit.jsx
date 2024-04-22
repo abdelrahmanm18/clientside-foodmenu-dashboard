@@ -9,7 +9,7 @@ export default function OffersEdit() {
   let { id } = useParams();
   const navigate = useNavigate();
   let { state } = useLocation();
-  const currentOffer = state.offers.results[id - 1];
+  const currentOffer = state.offers.results[id - 3];
   const [offer, setOffer] = useState({
     title: currentOffer.title,
     available: currentOffer.available,
@@ -17,6 +17,7 @@ export default function OffersEdit() {
     successMessage: null,
   });
 
+  console.log(offer);
   const image = useRef(null);
 
   const handleSubmit = async (e) => {
